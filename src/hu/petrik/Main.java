@@ -38,6 +38,9 @@ public class Main {
 
             System.out.printf("Szerepel-e 1452-es fuvar: %s\n", fuvarok.stream().anyMatch(fuvarok -> fuvarok.getAzonosito() == 1452));
 
+            System.out.println("\nA legrovidebb fuvar: ");
+            fuvarok.stream().filter(fuvar -> fuvar.getIdotartam()>0).sorted((a,b)->a.getIdotartam()-b.getIdotartam()).collect(Collectors.toList()).stream().limit(3).forEach(System.out::println);
+
             System.out.printf("December 24-en %s fuvar volt\n", fuvarok.stream()
                     .filter(fuvarok -> fuvarok.getIndulasIdopont().contains("2016-12-24")).count());
 
